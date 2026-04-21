@@ -226,9 +226,6 @@ union EvaluationLevel {
   @doc("Evaluation is performed at the conversation level.")
   conversation: "conversation",
 
-  @doc("Evaluation is performed at individual levels.")
-  levels: "levels",
-
   string,
 }
 

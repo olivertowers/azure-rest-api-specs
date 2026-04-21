@@ -490,6 +490,11 @@ model ConversationGenPreviewItemGenerationParams extends ItemGenerationParams {
   /** The type of item generation parameters, always `conversation_gen_preview`. */
   type: ItemGenerationParamsType.conversationGenPreview;
 
+  /** The source of test scenarios, supporting file_id or file_content. */
+  #suppress "@azure-tools/typespec-autorest/union-unsupported" "This union is defined according to the Azure OpenAI API."
+  #suppress "@azure-tools/typespec-azure-core/no-unnamed-union" "Auto-suppressed warnings non-applicable rules during import."
+  source: OpenAI.EvalJsonlFileContentSource | OpenAI.EvalJsonlFileIdSource;
+
   /** The model deployment used for simulation, in the format '{connectionName}/modelDeploymentName'. */
   `model`: string;
 
@@ -508,11 +513,6 @@ model ConversationSimulationPreviewEvalRunDataSource extends EvalRunDataSource {
 
   /** The parameters for conversation generation. */
   item_generation_params: ConversationGenPreviewItemGenerationParams;
-
-  /** The source of test scenarios, supporting file_id or file_content. */
-  #suppress "@azure-tools/typespec-autorest/union-unsupported" "This union is defined according to the Azure OpenAI API."
-  #suppress "@azure-tools/typespec-azure-core/no-unnamed-union" "Auto-suppressed warnings non-applicable rules during import."
-  source: OpenAI.EvalJsonlFileContentSource | OpenAI.EvalJsonlFileIdSource;
 
   /** The target agent to simulate conversations against. */
   target: AzureAIAgentTarget;
